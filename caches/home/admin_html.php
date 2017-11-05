@@ -1,0 +1,47 @@
+﻿<html>
+	<head>
+		<title><?=$title;?></title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="gl">
+		  <!--管理中心logo介绍-->
+			<div class="gl_left fl">
+				<ul class="left_ul">
+					<li class="bt"><b>Discuz!</b><font>管理中心</font></li>
+					<li class="ms">Discuz!是<a href="<?=$url;?>" target="_blank">腾讯</a>旗下<a href="http://www.discuz.net">Comsenz</a> 公司推出的以社区为基础的专业建站平台，帮助网站实现一站式服务。</li>
+				</ul>
+			</div>
+			<!--后台登录设计-->
+			<div class="gl_right fr">
+			<!--form表单设计-->
+				<form class="right_form" action="../../check_admin.php" method="post">
+					<ul class="form_ul">
+						<li class="yhm">用户名: <input type="text" class="user" name="username" placeholder="admin" /></li>
+						<li class="mima">密&nbsp;&nbsp;&nbsp;码: <input type="password" class="pass" name="password" /></li>
+						<li class="tw">提&nbsp;&nbsp;&nbsp;问:
+								<select name="problem">
+									<option value="">无安全问题</option>
+									<option value="">母亲的名字</option>
+									<option value="">爷爷的名字</option>
+									<option value="">父亲出生的城市</option>
+									<option value="">你其中一位老师的名字</option>
+									<option value="">你个人计算机的型号</option>
+									<option value="">你最喜欢的餐馆名</option>
+									<option value="">驾驶证最后4位数</option>
+								</select>
+						</li>
+						<li class="hf">回&nbsp;&nbsp;&nbsp;答: <input type="text" class="huida" name="reply" value=""/></li>
+						<li class="tj"><input type="submit" class="tijiao" name="tijiao" value="提交"/></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<!--底部设计-->
+		<div class="footer_gl">
+			<span>Powered by <a href="#">Discuz</a>! X2&copy;2001-2011,<a href="#">Comsenz Inc.</a> </span>
+		</div>
+	</body>
+</html>

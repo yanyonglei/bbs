@@ -1,0 +1,56 @@
+﻿<html>
+	<head>
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+		<script type="text/javascript" src="public/ckeditor/ckeditor.js" ></script>
+	</head>
+	<body>
+
+	
+		{if $username==""}
+		{include header.html}
+		{else}
+		{include header2.html}
+		{/if}
+		<!--	最上面一行设计-->
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="../../public/images/mine_icn.png"/><img  src="../../public/images/pt_item.png"/></i><b><a href="#">论坛</a></b>
+			</div>
+		</div>
+		<!--发帖的主界面-->
+		<div class="main_addc">
+			<div class="addc_content">
+				<div class="ft">
+					<h1>发表帖子</h1>
+				</div>
+				
+				<form class="ft_form" action="../../check_addc.php" method="post" enctype="multipart/form-data">
+					<ul class="ft_ul">
+						<input   type="hidden" name="classid" value="{$classid}"       />
+						<li class="title_li"><input type="text" name="title" value="" />还可以输入<font>80</font>个字符</li>
+						<li class="detailed_li">
+						
+							<!-- <input type="text" name="content" value="" /></li> -->
+							<textarea name="content" class="ckeditor" id="TextAreal"  ></textarea>
+
+						<li class="sj"><h1>售价</h1></li>
+						<li class="money">售价:<input type="number" min="0" name="money" value="0" />金钱<font>(最高30)</font></li>
+						<li class="tj"><input type="submit" name="" value="发表贴子" /></li>
+					</ul>	
+				</form>	
+			</div>	
+		</div>
+		<!--发帖的主界面 结束-->
+		 <!--底部布局开始-->
+		 <hr class="fgx"/>
+		 <!--底部布局开始-->
+		{include footer.html}
+	</body>
+	
+</html>
+
+
+

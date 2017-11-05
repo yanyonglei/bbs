@@ -1,0 +1,50 @@
+﻿<html>
+	<head>
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+		<script>
+		window.onload = function ()
+		{
+			var oBox = document.getElementById('box');
+			oBox.innerHTML = '<p>{$msg}</p>'+'5秒后跳转<a href="{$url}">立马跳转</a>';
+			var n = 100;
+			
+			setInterval(function(){
+			
+				n--;
+				
+				if (n == 0) {
+					window.location.href="{$url}";
+				} else {
+					oBox.innerHTML ='<p>{$msg}</p>'+ n+'秒后跳转<a href="{$url}">立马跳转</a>';
+				}
+				
+			},1000);
+		}
+		</script>
+
+	</head>	
+	<body>
+
+		{if empty($className)}
+		{include header.html}
+		{else}
+		{include header2.html}
+		{/if}
+
+
+		<!--主体部分main 的布局包括 php技术交流 程序人生-->
+		<div class="main_nologin">
+			
+			<div class="tx"  id="box">
+				
+			</div>
+		</div>
+		<!--超链接结束-->
+		<hr class="fgx"/>
+		 <!--底部布局开始-->
+		 {include footer.html}
+	</body>
+</html>

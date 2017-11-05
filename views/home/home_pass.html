@@ -1,0 +1,71 @@
+﻿<html>
+	<head>
+		<title>密码安全-10分钟学院</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>	
+	<body>
+			<!--	最上面一行设计-->
+		{include header2.html}
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="../../public/images/mine_icn.png"/><img  src="../../public/images/pt_item.png"/></i><b><a href="#">论坛</a></b>
+			</div>
+		</div>
+		<!--提示-->
+		<!--主体部分main 的布局包括 php技术交流 程序人生-->
+		
+		
+		<!--main 设计结束                            -->
+		<!--超链接部分-->
+		<div class="grzl_pass">
+			<div class ="grzl_nav fl clearFix">
+				<ul class="nav_ul">
+					<li class="setting_li"><font>设置</font></li>
+					<li class="modify_li"><a  href="../../home_tx.php">修改头像</a></li>
+					<li class="gr_li"><a href="../../home.php">个人资料</a></li>
+					<li class="qm_li"><a href="../../home_qm.php">个人签名</a></li>
+					<li class="safe_li"><a href="../../home_pass.php">密码安全</a></li>
+				</ul>
+			</div>
+			<div class="grzl_content fr clearFix">
+				<form class="content_form" action="../../check_home_pass.php" method="post" enctype="multipart/form-data">
+					<ul class="form_ul">
+						<li class="remind_li">您必须填写旧密码才能修改下面的资料</li>
+						<li class="lao">旧密码<font>*</font><input  type="password" placeholder=" "  name="oldpass" value="" /></li>
+						<li class="new">新密码 <input  type="password" placeholder=" "  name="newpass" value="" /></li>
+						<li class="miaoshu">如不需要更改密码，此处请留空</li>
+						<li class="confirm">确认新密码 <input  type="password" placeholder=" "  name="confirm" value="" /></li>
+						<li class="miaoshu">如不需要更改密码，此处请留空 </li>
+						<li class="email">Email<input  type="text" placeholder=" "  name="email" value="" /> </li>
+						<li  class="miaoshu">取回密码时使用 </li>
+						<li class="aqtw">安全提问
+							<select  name="ask">
+								<option selected>保持原有的安全提问和答案</option>
+								<option >无安全提问</option>
+								<option >母亲的名字</option>
+								<option >爷爷的名字</option>
+								<option >父亲出生的城市</option>
+								<option >您其中一位老师的名字</option>
+								<option >您个人计算机的型号</option>
+								<option >您最喜欢的餐馆名称</option>
+								<option >驾驶执照最后四位数字</option>
+							</select>
+						</li>
+						<li  class="miaoshu">如果您启用安全提问，登录时需填入相应的项目才能登录 </li>
+						<li class="huida">回答<input  type="text" placeholder=" "  name="replay" value="" /> </li>
+						<li  class="miaoshu" >如您设置新的安全提问，请在此输入答案 </li>
+						<li class="bc" > <input  type="submit"  class="save" value="保存" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		<!--超链接结束-->
+	
+		 <!--底部布局开始-->
+		 {include footer.html}
+		 <!--底部布局开始-->
+	</body>
+	
+</html>

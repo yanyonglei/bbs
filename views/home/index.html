@@ -1,0 +1,141 @@
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+		
+		{if $username==""}
+		{include header.html}
+		{else}
+		{include header2.html}
+		{/if}
+		<div class="ml" >
+			<div class="ml_first">
+				<i><img src="public/images/mine_icn.png"/>
+					<img  src="public/images/pt_item.png" /></i><b><a href="index.html">论坛</a></b>
+			</div>
+		</div>
+		<!--提示-->
+		<div class="info">
+			<div class="info_div  ">
+				<ul class="info_ul fr"  >
+					<li><i><img src="public/images/chart.png" /></i></li>
+					<li class="first"><b class="tiezi">帖子:</b><font>{$sum}</font></li>
+					<li class="second"><b class="vip">会员:</b><font>{$count}</font></li>
+					<li class="third"><b class="welcome">欢迎新会�?</b><font>{$newestUser}</font></li>
+				</ul>
+			</div>
+		</div>
+		<!--主体部分main 的布局包括 php技术交�?程序人生-->
+		<div class="main">
+			{if $class!=''}
+			{foreach $class as $key=> $values}	
+
+			    <div class="php_bt">
+					<h1 class="common">
+						<a href="index.php?bigid={$values['cid']}">{$values['classname']}</a>
+					</h1>
+				</div>
+				{if $className1!=""}
+				{foreach  $className1 as $key=>$value }
+					<div class="php">		 
+						<div class="php_first">
+
+						{if $value['parentid']==$values['cid']}
+							<div class="item">
+									<div class="first_left fl clearFix">
+										<div class="left_logo" >
+											<h1>
+												 <img src="public/images/forum.gif" />
+											</h1>
+										</div>
+										<div class="left_info">
+											<ul class="left_info_ul">
+												<li><a href="list.php?classid={$value['cid']}">{$value['classname']}</a></li>
+												<li>版主:<font></font></li>
+											</ul>
+										</div>
+									</div>
+									<div class="first_right  fr clearFix">
+										<div class="right_num">
+											<ul class="num_ul">
+												<li class="look_info"><font>{$value['replycount']}</font>/{$value['motifcount']}</li>
+												<li> &nbsp; </li>
+											</ul>
+										</div>
+
+										<div class="right_info">
+											<ul class="right_info_ul">
+													{if !empty($data)}
+													{foreach $data as $key=>$v}
+														{if $v['classid']==$value['cid']}
+													<li class="title"><a href="">{$v['title']}</a></li>
+													<li  class="time">{echo date('Y-m-d:H:i:s',$v['addtime']);}{$v['username']}</li>
+													   {/if}	
+
+													{/foreach}	
+													{else}
+
+											  		<li class="title">暂无</li>
+											  		{/if}
+													
+									
+											</ul>
+										</div>
+									</div>
+							</div>
+						{/if}
+
+						</div>
+					</div>
+				
+					{/foreach}
+
+				{/if}
+			{/foreach}
+			{/if}
+	
+		</div>
+				
+		<div class="clj"> 
+			{if $linkInfo!=''}
+			{foreach $linkInfo as $key =>$val}
+					{if $val['description']!=''}
+			<div class="waiwang">
+				
+				<span class="net">{$val['name']}</span>
+				<span class="net_span">
+					<ul class="net_ul">
+						<li class="net_li"><a href="{$val['url']}">{$val['name']}</a></li>
+						<li class="company">{$val['description']}</li>
+					</ul>
+				</span>
+				
+			</div>
+			{/if}
+			{/foreach}
+			{/if}
+			<!-- <div class="school">
+				<span class="net">千锋</span>
+				<span class="net_span">
+					<ul class="net_ul">
+						<li class="net_li"><a href="">千锋</a></li>
+						<li class="company">php学院</li>
+					</ul>
+				</span>
+			</div> -->
+			<div class="huizong">
+				{if !empty($linkInfo)}
+				{foreach $linkInfo as $key =>$val}
+				<span><a href="{$val['url']}" target="_blank">{$val['name']}</a></span>
+				{/foreach}
+				{/if}
+				<!-- <span><a href="">百度</a></span>
+				<span><a href="">漫游平台</a></span>
+				<span><a href="">Yeswan</a></span>
+				<span><a href="">我的领地</a></span>
+				<span><a href="">千锋</a></span> -->
+			</div>
+		</div>
+		 <hr class="fgx"/>
+		
+		 {include footer.html}

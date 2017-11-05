@@ -1,0 +1,64 @@
+﻿<html>
+	<head>
+		<title>10分钟-管理中心-友情链接</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_link">
+			<div class="title">友情链接</div>
+			<div class="attention">提示技巧</div>
+			<form class="link_form" action="../../admin/admin_link.php" method="post">
+				<ul class="link_ul">
+					<li class="sming">未填写文字说明的项目将以紧凑型显示。</li>
+					<hr />
+					<li class="category">
+						<span class="order">显示顺序</span>
+						<span class="zdname">站点名称</span>
+						<span class="url">站点URL</span>
+						<span class="wzsm">文字说明</span>
+						<span class="lg">logo地址(可选)</span>
+					</li>
+					{foreach $linkInfo as $key => $value}
+					<li class="item_li">
+						<input  type="hidden" name="lid[]" value="{$value['lid']}" />
+						<input class="xz" type="checkbox" name="id[]" value="{$value['lid']}"/>
+						<input class="order" type="number" name="displayorder[]" value="{$value['displayorder']}" />
+						<input class="zdname" type="text" name="name[]" value="{$value['name']}" />
+						<input class="url" type="text" name="url[]" value="{$value['url']}" />
+						<input class="wzsm" type="text" name="description[]" value="{$value['description']}" />
+						<input class="lg" type="text" name="logo[]" value="{$value['logo']}"/>	
+					</li>
+					{/foreach}
+					<li class="caozuo">
+						<input  class="del" type="submit"  name="del"   value="删除"/>
+						<input class="modify" type="submit" name="modify" value="修改" />
+					</li>
+				</ul>	
+			</form>
+			<form class="link_form"  action="../../admin/admin_link.php" method="get">
+				<ul class="link_ul">
+					<li class="category">
+						<span class="order">显示顺序</span>
+						<span class="zdname">站点名称</span>
+						<span class="url">站点URL</span>
+						<span class="wzsm">文字说明</span>
+						<span class="lg">logo地址(可选)</span>
+					</li>
+					<li class="add_li"><img src="../../public/images/addicn.gif" /><a href="">添加友情链接</a></li>
+					<li class="item_li">
+						<input class="order shunxu" min=1 name="shunxu" type="number" />
+						<input class="zdname" type="text" name='mingcheng' />
+						<input class="url" type="text" name="path" />
+						<input class="wzsm" type="text" name="miaoshu" />
+						<input class="lg" type="text" name="biaozhi" />	
+					</li>
+					<li class="caozuo">
+						<input  class="add del" type="submit"  value="添加"/>
+					</li>
+				</ul>	
+			</form>
+		</div>
+	</body>
+</html>

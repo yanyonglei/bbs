@@ -1,0 +1,67 @@
+﻿<html>
+	<head>
+		<title>10分钟学院-管理中心-用户管理-板块管理</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+<body>
+	<div class="main_admin_category">
+		<div class="title">板块管理</div>
+		<div class="display_name">
+			<span class="dis">显示顺序</span>
+			<span class="name">板块名称</span>
+			<span class="bz fr clearFix">版主</span>
+		</div>
+		<form action="../../admin/admin_category.php" method="post" enctype="multipart/form-data">
+			{if $classNames!=''}
+			{foreach $classNames as $key => $value}
+			<div class="display_name">
+				<span class="dis">
+					
+					<input  type="text" name="orderby[]" value="{$value['orderby']}" />
+				</span>
+				<span class="name">
+					<input  name="cid[]" type="hidden" value="{$value['cid']}"  />
+					<input  type="text" name="className[]" value="{$value['classname']}" />
+				</span>
+			</div>
+			
+			<ul class="content_ul">
+			{if $classItemNames!=''}	
+				{foreach $classItemNames as $key=>$val}
+					{if $val['parentid']==$value['cid']}
+				<li class="num_li">
+					<span class="dis">
+						
+						<input  type="text" name="orderby[]" value="{$val['orderby']}" />
+					</span>
+					<span class="name">
+						<input  name="cid[]"  type="hidden" value="{$val['cid']}"  />
+						<input  type="text" name="className[]" value="{$val['classname']}" />
+					</span>
+					{if $val['compere']!=''}
+					<span class="bz fr">
+						<input  type="text" name="compere[]" value="{$val['compere']}" />
+					</span>
+					{else}
+					<span class="bz fr">
+						<input  type="text" name="compere[]" value="" />
+					</span>
+					{/if}
+				</li>
+				{/if}
+				{/foreach}
+				{/if}
+			<ul>	
+			{/foreach}
+			{/if}
+			<div class="tijiao">
+				<input type="submit" name='save' value="提交" />
+			</div>
+			
+		</form>
+	  </div>
+
+	</body>
+</html>

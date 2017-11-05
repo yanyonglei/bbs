@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+>
+		<script type="text/javascript">
+		window.onload=function()
+		{
+			var oBtn=document.getElementById('btn');
+
+			var oImg=document.getElementById('img');
+			oBtn.onclick=function(){
+
+				oImg.src='../../helper/vertify.php?'+Math.random();
+			}
+		}
+
+		</script>
+
+	</head>	
+	<body>
+	
+		{include header.html}
+
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="../../public/images/mine_icn.png"/><img  src="../../public/images/pt_item.png"/></i><b><a href="index.html">论坛</a></b>
+			</div>
+		</div>
+		<div class="main_register">
+			<div class="register_bt">
+				<h1>找回密码</h1>
+			</div>
+			<div class="regis">
+				<div class="div_form" >
+					<form  action="#" method="POST"   class="form_regis" >
+						<ul class="regis_ul">
+							<li class="name">
+								<font class="xing ">*</font><b class="tong">用户�?</b><input type="text" class="user" name="usernmae" value=""/>
+							</li>
+							<li class="em">
+								<font class="xing ">*</font><b class="tong">E-mail:</b><input type="text" class="mail" name="mail" value=""/>
+							</li>
+							<li class="yz">
+								<font class="xing">*</font><b class="tong">验证�?</b><input type="text" class="yzm" name="yzm" value=""/>
+								<img  src="../../helper/vertify.php"  id="img" onclick="this.src='../../helper/vertify.php?'+Math.random();"/>
+								<span><a href="" id="btn">看不清换一�?/a></span>
+							</li>
+							<li class="tj">
+								<input type="submit" class="tijiao" name="tijiao" value="提交"/>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--超链接结�?->
+		<hr class="fgx"/>
+		 <!--底部布局开�?->
+		 {include footer.html}
+	</body>
+</html>

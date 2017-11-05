@@ -1,0 +1,49 @@
+﻿<html>
+	<head>
+		<title>{$title}</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_lock_ip">
+			<div class="title">禁止IP</div>
+			<div class="attention">技巧提示</div>
+			<div class="info">
+				<ul class="info_ul">
+					<li>被限制的IP地址不能访问本站。</li>
+					<li> 有效期如果设置为空则视为永久禁止。</li>
+				</ul>
+			</div>
+
+			<div class="biaoti">
+				<span class="ip">IP地址</span>
+				<span class="start">起始时间</span>
+				<span class="end">终止时间</span>
+			</div>
+			{if $resIp!=''}
+			{foreach $resIp as $key =>$value}
+			<div class="biaoti">
+				<span class="ip">{echo long2ip($value['ip']);}</span>
+				<span class="start">{echo date('Y-m-d H:i:s',$value['addtime']);}</span>
+				<span class="end">{echo date('Y-m-d H:i:s',$value['overtime']);}</span>
+			</div>
+			{/foreach}
+			{/if}
+
+
+
+			<form action="../../admin/admin_lock_ip.php" method="post">
+				<div class="add">
+					<span>新增</span>
+					<input type="number" min=1 max=255 value="" name="num[]" class="" />.
+					<input type="number" min=1 max=255 value="" name="num[]" class="" />.
+					<input type="number" min=1 max=255 value="" name="num[]" class="" />.
+					<input type="number" min=1 max=255 value="" name="num[]" class="" />
+					<span class="yxq">有效期:<input type="number" min=0 value="" name="yxq" class=""/>天</span>
+				</div>
+				<input  type="submit" class="jia" value="添加" />
+			</form>
+		</div>
+	</body>
+</html>

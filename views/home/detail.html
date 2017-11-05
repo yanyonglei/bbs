@@ -1,0 +1,193 @@
+﻿<html>
+	<head>
+		<title>{$title}</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+		<script type="text/javascript" src="public/ckeditor/ckeditor.js" ></script>
+	</head>	
+	<body>
+		
+			<!--	最上面一行设计-->
+		{if $username==""}
+		{include header.html}
+		{else}
+		{include header2.html}
+		{/if}
+			<!--	最上面一行设计 结束-->
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="public/images/mine_icn.png"/><img  src="public/images/pt_item.png"/></i><b><a href="#">论坛</a></b>
+			</div>
+		</div>
+		<!--发帖的主界面-->
+		<div class="fhf" >
+			<div class="ft fl clearFix">
+				<a href="../../addc.php?classid={$classId}">发帖</a>
+			</div>
+			<div class="hf fl clearFix">
+				<a href="#target"  target="_self">回复</a>
+			</div>
+			<div class="back fr clearFix">
+				<a href="../../list.php?classid={$classId}">返回列表</a>
+			</div>
+		</div>
+		{if $username!=''}
+		<div class="tiezicaozuo">
+			<span><a href="../../detail.php?id={$id}&del=1">删除主题</a></span>|
+			<span><a href="../../detail.php?id={$id}&istop=1">置顶</a></span>|
+			<span><a href="../../detail.php?id={$id}&style=1">高亮</a></span>|
+			<span><a href="../../detail.php?id={$id}&elite=1">精华</a></span>|
+		</div>
+		{/if}
+		{if $lastList!=''}
+		{foreach $lastList as $key =>$value}
+		<div class="detail_main_id">
+		
+			<div class="detail_left fl clearFix">
+				<ul class="detail_ul">
+					{if $value['first']!=0}
+					<li class="lr">查看:<font class="look">{$value['hits']}</font><b>回复:</b><font class="res">{$value['reply']}</font></li>
+					<li class="auther">{$value['username']}</li>
+					{/if}
+				</ul>
+				<ul class="down_ul">
+					<li class="image"><h1><img src="{$value['picture']}"/></h1></li>
+					<li class="gly">{$value['username']}</li>
+					{if $value['udertype']==1}
+					<li class="gly">管理员</li>
+					{else}
+					<li class="gly">普通用户</li>
+					{/if}
+					{if  $value['grade'] <= 500 }
+					<li class="ss">民兵</li>
+					{else if $value['grade']>500 && $value['grade']<= 1000}
+					<li class="ss">小兵</li>
+					{else if $value['grade']>1000 && $value['grade']<= 1500}
+					<li class="ss">班长</li>
+					{else if $value['grade']>1500 && $value['grade']<= 2000}
+					<li class="ss">排长</li>
+					{else if $value['grade']>2000 && $value['grade']<= 2500}
+					<li class="ss">连长</li>
+					{else if $value['grade']>2000 && $value['grade']<= 2500}
+					<li class="ss">营长</li>
+					{else if $value['grade']>2500 && $value['grade']<= 3500}
+					<li class="ss">团长</li>
+					{else}
+					<li class="ss">坛主</li>
+					{/if}
+
+				</ul>
+			</div>
+			<div class="detail_right fr clearFix">
+				<!--  帖子标题设计   -->
+				<div class="right_first">
+					<div class="bt_time fl clearFix">
+						<ol>
+							<li class="bt"><h1>{$value['title']}</h1></li>
+							<li class="time"><img src="../../public/images/online_admin.gif"/><font>发表于 {echo date('Y-m-d H:i:s',$value['addtime']);}</font></li>
+						</ol>
+					</div>
+					<div class="tiaozhuan fr clearFix">
+						<form>
+								<ol class="form_ol">
+									<li class="up_down" >
+									
+									<b>楼层 第 {$key+$offSet} 楼</b>
+									
+									<a href=""><img src="../../public/images/thread-prev.png"/></a><a><img src="../../public/images/thread-next.png"/></a></li>
+									{if $value['first']==0}
+									<li class="direc">楼主   电梯直达<input type="text" name="" value=""/><a><img src="../../public/images/fj_btn.png" /></a></li>
+									{/if}
+								</ol>
+						</form>	
+					</div>
+				</div> 
+				<!-- 帖子内容设计 -->
+				<div class="right_second">
+					 {if $value['rate']>0 && $value['first']==1 }
+
+						{if $username==$value['username']}
+							{$value['content']}
+						{else if $udertype==1}
+							{$value['content']}
+						{else if $ispayed!='' }
+							{$value['content']}
+						{else}
+							<div class="read"><img src="../../public/images/rewardsmall.gif"/>积分帖暂时不能于都阅读可以评论<a href="detail.php?id={$id}&ispay=1">购买帖子</a></div>
+						{/if}
+					{else}
+					{$value['content']}
+					{/if}
+						{if $value['first']==1 && $value['elite']==1}
+						<div align="center" valign="bottom">本主题已经加入精华</div>
+						{/if} 
+				</div>
+				<div class="right_third">
+					<a href=""><img src="../../public/images/fastreply.gif"/></a><a href="">回复</a>
+					{if $username!=""}
+					<span class="del"><a href="../../detail.php?id={$id}&del=1">删除</a></span>|
+					<span class="top"><a href="../../detail.php?id={$id}&istop=1">置顶</a></span>|
+					<span class="elite"><a href="../../detail.php?id={$id}&elite=1">精华</a></span>
+					{/if}
+				</div>
+			</div>
+			</div>		
+		</div>
+		{/foreach}
+		{/if}
+		<div class="fhf" >
+			<div class="ft fl clearFix">
+				<a href="../../addc.php?classid={$classId}">发帖</a>
+			</div>
+			<div class="hf fl clearFix">
+				<a name="target">回复</a>
+			</div>
+			<div class="back fr clearFix">
+				<a href="../../list.php?classid={$classId}">返回列表</a>
+			</div>
+		</div>
+		 <div class="fenye">
+			<div class="item fr"   clearFix >
+				<form class="item_form">
+					<ul class="form_ul" action="detail.php" method="get">
+							<li><input type="hidden" name="id" value="{$id}"></li>
+							<li class="num"><input type="number" min="1" name="page" value="{$page}" /></li><li class="go"><input type="submit"  value="GO"  /></li>
+							<li class="first"><a href="../../detail.php?id={$id}&page=1">首页</a></li>
+							<li class="prev"><a href="../../detail.php?id={$id}&page={$prev}">上一页</a></li>
+							<li class="current"><b>{$page}</b></li>
+							<li class="next"><a href="../../detail.php?id={$id}&page={$next}">下一页</a></li>
+							<li class="end"><a href="../../detail.php?id={$id}&page={$pages}" >尾页</a></li>
+							<li class="sum">共有<b>{$total}</b>条记录</li>
+							<li class="every">每页显示<b>{$offSet}</b>条，本页<b>{$page}-{$offSet}</b>条</li>
+							<li class="dis"><b>{$page}/{$pages}</b>页</li>
+						</ul>
+				</form>
+			</div>
+		</div>
+		<div class="pl">
+			<div class="pl_left fl clearFix">
+				<ol class="left_ol">
+					<li><img src="{$picture}"/></li>
+				</ol>
+			</div>
+			<div class="pl_right fr clearFix" >
+				<div class="right_div">
+					<form class="div_form" action="check_detail.php" method="post">
+						<ul class="form_ul">
+							<input type="hidden" name="id" value="{$id}" />
+							<input type="hidden" name="classid" value="{$classId}"/>
+							<textarea name="content" class="ckeditor" id="TextAreal"  ></textarea>
+							<li class="sc"><input type="submit" value="发表回复" /></li>
+						</ul>
+					</form>	
+				</div>
+				
+			</div>
+		</div>
+		 <hr class="fgx"/>  
+		 <!--底部布局开始-->
+	  {include footer.html} 
+	</body>
+	
+</html>

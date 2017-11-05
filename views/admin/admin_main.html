@@ -1,0 +1,53 @@
+﻿<html>
+	<head>
+		<title>10分钟-管理中心-站点信息</title>
+		<meta  charset='utf-8'/>
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="admin_main">
+			<div class="title">站点信息</div>
+			<form class="main_form" action="../../admin/admin_main.php" method="post">
+				<ul class="form_ul">
+					<li class="zhandian"><h1>站点名称:</h1>
+						<input  type="text" value="{$info['name']}" name="name"  />
+					<font>站点名称，将显示在浏览器窗口标题等位置</font>
+					</li>
+					<li class="network"> <h1>网络名称:</h1> 
+						<input  type="text" value="{$info['netname']}" name="netname"  />
+						<font>网站名称，将显示在页面底部的联系方式处</font>
+					</li>
+					<li class="url"><h1> 网站URL: </h1> 
+						<input  type="text" value="{$info['url']}" name="url"  />
+						<font>网站 URL，将作为链接显示在页面底部</font>
+						</li>
+					<li class="daima"><h1> 网站备案信息代码:</h1> 
+						<input  type="text" value="{$info['info']}" name="info"  />
+						<font>页面底部可以显示 ICP 备案信息，如果网站已备案，在此输入你的授权码，它将显示在页面底部，如果没有请留空</font>
+					</li>
+
+					<li class="close"> <h1>关闭站点:</h1> <br/></li>
+
+					<li class="gbzd"><h1>关闭站点:</h1>
+						{if $info['isclose']==1}
+						<input  type="radio"  checked id="yes" value="1" name="isclose" /><label for="yes">是</label>
+						{else}
+						<input  type="radio"   id="yes" value="1" name="isclose" /><label for="yes">是</label>
+						{/if}
+
+						{if $info['isclose']==0}
+						<input  type="radio"  checked id="no" value="0" name="isclose" /><label for="yes">否</label>
+						{else}
+						<input  type="radio"   id="no" value="0" name="isclose" /><label for="yes">否</label>
+						{/if}
+						<font>暂时将站点关闭，其他人无法访问，但不影响管理员访问</font>
+					</li>
+					<li class="save">
+						<input  type="submit" value="提交" />
+						</li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>

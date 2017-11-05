@@ -1,0 +1,51 @@
+﻿<html>
+	<head>
+		<title>搜索页面</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="top">
+			<div class="top_left fl clearFix">
+				<span><a href="#">返回首页</a></span>
+			</div>
+			<div class="top_right fr clearFix">
+				<span><a  href="#">admin</a></span>
+				<span><a  href="#">设置</a></span>
+				<span><a  href="#" >退出</a></span>
+			</div>
+		</div>
+		<div class="header">
+			<div class="header_logo fl clearFix">
+				<h1><a><img src="public/images/logo.png"/></a></h1>
+			</div>
+			<div class="search" >
+				<form class="search_form"  action=".../../search.php" method="post" >
+					<input type="text" class="content" placeholder="key" name="key" /><input type="submit" class="ss" value="搜索" />
+				<form>
+			</div>
+		</div>
+		{if  !empty($resInfo)}
+		<div class="main0">
+			搜索出来{echo count($resInfo);}条结果
+		</div>
+		{else}
+		<div class="main0">
+			搜索出来{echo count($resInfo);}条结果
+		</div>
+		{/if}
+		<div class="content">
+			{if  !empty($resInfo)}
+				{foreach $resInfo as $key=>$value}
+				<div style=" font-size:15px"> {$value['content']}</a>
+				</div>
+				{/foreach}
+			{/if}	
+		</div>
+		
+		<div class="bottom">
+			<span>Powered by <a href="#">Discuz</a>! X2&copy;2001-2011,<a href="#">Comsenz Inc.</a></span>
+		</div>
+	</body>
+</html>

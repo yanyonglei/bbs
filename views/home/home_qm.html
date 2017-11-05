@@ -1,0 +1,56 @@
+﻿<html>
+	<head>
+		<title>个人签名-10分钟学院</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+		<script type="text/javascript" src="public/ckeditor/ckeditor.js" ></script>
+	</head>	
+	<body>
+
+
+		{include header2.html}
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="../../public/images/mine_icn.png"/><img  src="../../public/images/pt_item.png"/></i><b><a href="#">论坛</a></b>
+			</div>
+		</div>
+		<!--提示-->
+		<!--主体部分main 的布局包括 php技术交流 程序人生-->
+		
+		</div>
+		<!--超链接结束-->
+	
+		 <!--底部布局开始-->
+		<div class="grzl_qm">
+			<div class ="grzl_nav fl clearFix">
+				<ul class="nav_ul">
+					<li class="setting_li"><font>设置</font></li>
+					<li class="modify_li"><a  href="../../home_tx.php">修改头像</a></li>
+					<li class="gr_li"><a href="../../home.php">个人资料</a></li>
+					<li class="qm_li"><a href="../../home_qm.php">个人签名</a></li>
+					<li class="safe_li"><a href="../../home_pass.php">密码安全</a></li>
+				</ul>
+			</div>
+			<div class="grzl_content fr clearFix">
+				<form class="content_form" action="check_home_qm.php" method="post" enctype="multipart/form-data">
+					<ul class="form_ul">
+						<li class="base"><h1>个人签名</h1></li>
+						<li class="write">
+							<!-- <input type="text" name="miaoshu" value="" class=""/> -->
+							<textarea  class="ckeditor" name="qm" id="TextAreal"  ></textarea>
+						</li>
+						<li class="save"><input  type="submit" placeholder=" "  name="" value="保存" /></li>
+					</ul>
+				</form>
+			</div>
+			
+			
+		</div>
+		
+
+		 <!--底部布局开始-->
+		 {include footer.html}
+	</body>
+	
+</html>

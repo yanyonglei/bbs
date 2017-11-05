@@ -1,0 +1,39 @@
+﻿<html>
+	<head>
+		<title>10分钟-管理中心-用户管理-帖子管理</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_admin_detail_hf">
+			<div class="title">帖子管理</div>
+			<div class="attention">主题数:{$total}</div>
+			<form class="detail_form" action="../../admin/admin_detail_hf.php" method="post">
+				<ul class="form_ul">
+					<li class="detail_li">
+						<span class="biaoti">回复内容</span>
+						<span class="plate">板块</span>
+						<span class="auther">作者</span>
+						<span class="respon">回复时间</span>
+					</li>
+					{if $info!=''}
+					{foreach $info as $key => $value}
+					<li class="item_li">
+						<input type="checkbox" name="id[]" value="{$value['id']}"  />
+						<span class="content"><a>{$value['content']}</a></span>
+						<span class="name"><a href="../../list.php?classid={$value['classid']}" target="_blank">{$value['classname']}</a></span>
+						<span class="auther">{$value['username']}</span>
+						<span class="respon">{echo date('Y-m-d H:i:s',$value['addtime']);}</span>
+					</li>
+					{/foreach}
+					{/if}
+					<li class="huishou">
+						<input type="submit" value="放入回收站" />
+						
+					</li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>10分钟-管理中心-用户管理-帖子管理</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_admin_detail_hf">
+			<div class="title">帖子管理</div>
+			<div class="attention"> 主题�?{$total}</div>
+			<form class="detail_form" action="../../admin/admin_detail_hf_del.php" method="post">
+				 <ul class="form_ul">
+					<li class="detail_li">
+						<span class="biaoti">回复内容</span>
+						<span class="plate">板块</span>
+						<span class="auther">作�?/span>	
+					</li>
+					{if $info!=''}
+					{foreach $info as $key=>$val}
+					<li class="item_li">
+						<input type="checkbox" name="id[]" class="cb" value="{$val['id']}"  />
+						<span class="content"><a  target="_blank">{$val['content']}</a></span>
+						<span class="name"> <a  href="../../list.php?classid={$val['classid']}" target="_blank" >{$val['classname']}</a></span>
+						<span class="auther">{$val['username']}</span>
+					</li>
+					{/foreach}
+					{/if}
+					<li class="huishou">
+						<input type="submit" name="del" value="删除主题" />
+						<input type="submit" name="recover" value="恢复主题"/>
+						
+					</li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>

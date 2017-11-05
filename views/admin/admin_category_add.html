@@ -1,0 +1,37 @@
+﻿<html>
+	<head>
+		<title>10分钟-管理中心-用户管理-添加板块</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_category_add">
+			<div class="title">添加板块</div>
+			<div class="attention">技巧提示</div>
+			<div class="info">
+				<ul class="info_ul">
+					<li>添加时不选择大版块即为添加大版块</li>
+				</ul>
+			</div>
+			<form class="category_add_form" action="../../admin/admin_category_add.php" method="post" >
+				<ul class="form_ul">
+					<li class="bk">版块名称
+					<input type="text" class="" name="classname" value="" />
+					</li>
+					<li class="xzdbk">选择大版块
+						<select name="classitem">
+							<option>-不选择-</option>
+							{if $resParent!=''}
+							{foreach $resParent as $key=>$value }
+							<option>{$value['classname']}</option>
+							{/foreach}
+							{/if}
+						</select>
+						<input type="submit" class="" value="提交"  />
+					</li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>

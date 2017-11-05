@@ -1,0 +1,49 @@
+﻿<html>
+	<head>
+		<title>修改头像-10分钟学院</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="public/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>	
+	<body>
+		{include header2.html}
+		<div class="ml">
+			<div class="ml_first">
+				<i><img src="../../public/images/mine_icn.png"/><img  src="../../public/images/pt_item.png"/></i><b><a href="#">论坛</a></b>
+			</div>
+		</div>
+		<!--提示-->
+		<!--主体部分main 的布局包括 php技术交流 程序人生-->
+		
+		
+		<!--main 设计结束-->
+		<!--超链接部分-->
+		<div class="grzl_tx">
+			<div class ="grzl_nav fl clearFix">
+				<ul class="nav_ul">
+					<li class="setting_li"><font>设置</font></li>
+					<li class="modify_li"><a  href="../../home_tx.php">修改头像</a></li>
+					<li class="gr_li"><a href="../../home.php">个人资料</a></li>
+					<li class="qm_li"><a href="../../home_qm.php">个人签名</a></li>
+					<li class="safe_li"><a href="../../home_pass.php">密码安全</a></li>
+				</ul>
+			</div>
+			<div class="grzl_content fr clearFix">
+				<form class="content_form" action="../../check_home_tx.php" method="post" enctype="multipart/form-data">
+					<ul class="form_ul">
+						<li class="base"><h1>当前我的头像</h1></li>
+						<li class="warn">如果您还没有设置自己的头像，系统会显示为默认头像，您需要自己上传一张新照片来作为自己的个人头像 </li>
+						<li class="img"><h1><img src="{$picture}"/></h1> </li>
+						<li class="set">设置我的新头像</li>
+						<li class="file"><input type="file" name='file'/></li>
+						<li class="save"><input  type="submit" placeholder=" "  name="" value="保存" /></li>
+					</ul>
+				</form>
+			</div>	
+		</div>
+		 <!--底部布局开始-->
+		 {include footer.html}
+		 <!--底部布局开始-->
+	</body>
+	
+</html>

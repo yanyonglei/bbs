@@ -1,0 +1,52 @@
+﻿<html>
+	<head>
+		<title>10分钟-管理中心-用户管理</title>
+		<meta charset='utf-8' />
+		<link rel="stylesheet" type="text/css" href="public/css/admin_main.css"/>
+		<link rel="stylesheet" type="text/css" href="public/css/base.css"/>
+	</head>
+	<body>
+		<div class="main_member">
+			<div class="title">用户管理</div>
+			<div class="attention">共有{$total}条用户记录</div>
+			<form class="jieguo"  action="../../admin/admin_member.php" method="post" >
+				<ul class="jieguo_ul" >
+					<li class="category">
+						<span class="name">用户名</span>
+						<span class="fen">积分</span>
+						<span class="rtime">注册时间</span>
+						<span class="usertype">用户类型</span>
+					</li>
+					{foreach $userInfo as $key => $value}
+					<li class="item">
+						{if $value['udertype']==1}
+						<input type="checkbox" name="uid[]" disabled="disabled" value="{$value['uid']}" />
+						{else}
+						<input type="checkbox" name="uid[]"  value="{$value['uid']}" />
+						{/if}
+						<span class="name"><a href="">{$value['username']}</a></span>
+						<span class="fen">{$value['grade']}</span>
+						<span class="time">{$value['regtime']}</span>
+						{if $value['udertype']==1}
+						<span class="type">管理员</span>
+						{else}
+						<span class="type">普通用户</span>
+						{/if}
+						<span class="jf"><a href="../../admin/admin_member_show.php?id={$value['uid']}">积分</a>
+						<a href="../../admin/admin_member_show.php?id={$value['uid']}">详情</a>
+						{if $value['udertype']!=1 }
+						{if $value['allowlogin']}
+						<a href="../../admin/admin_member_lock.php?id={$value['uid']}&lock=1">解锁</a>
+						{else}
+						<a href="../../admin/admin_member_lock.php?id={$value['uid']}&lock=0">用户已经锁定</a>
+						{/if}
+						{/if}
+						</span>
+					</li>
+					{/foreach}
+					<li class="gai"><input type="submit" value="删除"/></li>
+				</ul>
+			</form>
+		</div>
+	</body>
+</html>
